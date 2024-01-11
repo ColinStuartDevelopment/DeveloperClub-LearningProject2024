@@ -15,6 +15,11 @@ run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=540
+window/size/viewport_height=960
+
 [dotnet]
 
 project/assembly_name="Developer Club-learning Project 2024"
