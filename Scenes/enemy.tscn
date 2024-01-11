@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfsxq1iutv2o7"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ghdnj"]
+[ext_resource type="Texture2D" uid="uid://bo3pdfl7sjptt" path="res://icon.svg" id="2_h2i14"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgcsg"]
+radius = 16.0
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = -2
+script = ExtResource("1_ghdnj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.882353, 0.0745098, 0.227451, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_h2i14")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kgcsg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.572549, 0.152941, 0.113725, 1)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

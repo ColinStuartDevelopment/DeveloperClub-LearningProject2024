@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://vh7kf0djojuh"]
+
+[node name="PlayerGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 21.0
+offset_right = 384.0
+offset_bottom = 64.0
+
+[node name="PlayerHealth" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_right = 153.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 12
+text = "PlayerHealth"
+vertical_alignment = 1
+
+[node name="PlayerScore" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 170.0
+offset_right = 379.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 12
+text = "PlayerScore"
+horizontal_alignment = 2
+vertical_alignment = 1
