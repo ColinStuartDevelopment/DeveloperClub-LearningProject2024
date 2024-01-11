@@ -6,8 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgcsg"]
 radius = 16.0
 
-[node name="Enemy" type="CharacterBody2D"]
-z_index = -2
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+light_mask = 6
+visibility_layer = 6
 collision_layer = 6
 collision_mask = 6
 script = ExtResource("1_ghdnj")

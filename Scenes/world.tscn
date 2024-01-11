@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_3muw0"]
 [ext_resource type="PackedScene" uid="uid://c4ragps5oh1y1" path="res://Scenes/player.tscn" id="1_pds7p"]
+[ext_resource type="Script" path="res://Scripts/enemy_maker.gd" id="2_gajfx"]
 [ext_resource type="Texture2D" uid="uid://lra0pcme3isa" path="res://Tilesheet-simpleColors-2KB.png" id="3_1orba"]
 [ext_resource type="PackedScene" uid="uid://vh7kf0djojuh" path="res://Scenes/player_gui.tscn" id="5_tgf1m"]
 [ext_resource type="PackedScene" uid="uid://bfsxq1iutv2o7" path="res://Scenes/enemy.tscn" id="6_kcytg"]
-[ext_resource type="PackedScene" uid="uid://bt1yvuybo7jpk" path="res://Scenes/orb.tscn" id="7_v8sws"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sicg1"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -47,6 +47,11 @@ sources/0 = SubResource("TileSetAtlasSource_soydq")
 [node name="World" type="Node2D"]
 script = ExtResource("1_3muw0")
 
+[node name="EnemyMaker" type="Node2D" parent="."]
+script = ExtResource("2_gajfx")
+
+[node name="EnemyMaker" type="Timer" parent="EnemyMaker"]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qrs7e")
 format = 2
@@ -63,13 +68,17 @@ scale = Vector2(3, 1)
 anchor_mode = 0
 zoom = Vector2(1.405, 1.405)
 
-[node name="Orb" parent="." instance=ExtResource("7_v8sws")]
-position = Vector2(184, 484)
-
 [node name="Player" parent="." instance=ExtResource("1_pds7p")]
 position = Vector2(191, 333)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_kcytg")]
-z_index = 0
-position = Vector2(-74, 226)
-player = NodePath("../Player")
+[node name="Enemy" parent="." instance=ExtResource("6_kcytg")]
+position = Vector2(126, 211)
+
+[node name="Enemy2" parent="." instance=ExtResource("6_kcytg")]
+position = Vector2(-73, 316)
+
+[node name="Enemy3" parent="." instance=ExtResource("6_kcytg")]
+position = Vector2(-51, 523)
+
+[node name="Enemy4" parent="." instance=ExtResource("6_kcytg")]
+position = Vector2(452, 598)

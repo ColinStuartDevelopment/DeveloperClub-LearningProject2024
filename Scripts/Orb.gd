@@ -33,5 +33,5 @@ func arrived_at_target():
 
 func _on_enemy_detection_body_entered(body):
 	if body.is_in_group("enemy"):
-		#body.take_damage(damage)
+		body.take_damage(damage)
 		arrived_at_target()
