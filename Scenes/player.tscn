@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4ragps5oh1y1"]
+[gd_scene load_steps=4 format=3 uid="uid://c4ragps5oh1y1"]
 
 [ext_resource type="Texture2D" uid="uid://bo3pdfl7sjptt" path="res://icon.svg" id="1_fix23"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_wy2ee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lna73"]
 radius = 16.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_wy2ee")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

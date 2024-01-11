@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt1yvuybo7jpk"]
+
+[ext_resource type="Script" path="res://Scripts/Orb.gd" id="1_mf710"]
+[ext_resource type="Texture2D" uid="uid://bo3pdfl7sjptt" path="res://icon.svg" id="2_vic0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t01ki"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hlmxm"]
+radius = 60.0
+
+[node name="Orb" type="CharacterBody2D"]
+scale = Vector2(0.1, 0.1)
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_mf710")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.905882, 0.686275, 0, 1)
+texture = ExtResource("2_vic0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t01ki")
+
+[node name="EnemyDetection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetection"]
+shape = SubResource("CircleShape2D_hlmxm")
+
+[connection signal="body_entered" from="EnemyDetection" to="." method="_on_enemy_detection_body_entered"]
