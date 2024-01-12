@@ -4,11 +4,11 @@ extends CharacterBody2D
 @export var damage :  float = 1.0
 var target = Vector2.ZERO
 
+@onready var explosion_one = preload("res://Scenes/Particles/explosion_one.tscn")
+
 
 func _ready():
 	assign_target()
-	print("I exist!")
-	
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(target)
@@ -27,11 +27,16 @@ func decide_distance():
 func assign_target():
 	target = get_global_mouse_position()
 
-func arrived_at_target():
-	print("Goodbye")
-	queue_free()
-
 func _on_enemy_detection_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(damage)
 		arrived_at_target()
+
+func create_explosion():
+	var explosion = explosion_one.instantiate()
+	get_parent().add_child(explosion)
+	explosion.position = position
+
+func arrived_at_target():
+	create_explosion()
+	queue_free()

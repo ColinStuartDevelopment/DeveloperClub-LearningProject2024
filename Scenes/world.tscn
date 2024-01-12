@@ -47,8 +47,6 @@ sources/0 = SubResource("TileSetAtlasSource_soydq")
 [node name="World" type="Node2D"]
 script = ExtResource("1_3muw0")
 
-[node name="EnemyMaker" parent="." instance=ExtResource("2_w8q37")]
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qrs7e")
 format = 2
@@ -70,3 +68,5 @@ position = Vector2(191, 333)
 
 [node name="Enemy" parent="." instance=ExtResource("6_kcytg")]
 position = Vector2(126, 211)
+
+[node name="EnemyMaker" parent="." instance=ExtResource("2_w8q37")]
