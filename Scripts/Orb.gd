@@ -29,11 +29,13 @@ func decide_distance():
 func assign_target():
 	target = get_global_mouse_position()
 
+
 func _on_enemy_detection_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(damage)
 		hit_enemy = true
 		arrived_at_target()
+
 
 func create_explosion():
 	var explosion = explosion_two.instantiate()
@@ -44,6 +46,7 @@ func create_explosion():
 		explosion = explosion_two.instantiate()
 	get_parent().add_child(explosion)
 	explosion.position = position
+
 
 func arrived_at_target():
 	create_explosion()

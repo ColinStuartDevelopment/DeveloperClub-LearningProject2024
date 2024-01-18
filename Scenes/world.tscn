@@ -57,6 +57,18 @@ layer_1/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 1, 65536, 0, 
 
 [node name="PlayerGUI" parent="." instance=ExtResource("5_tgf1m")]
 
+[node name="TimerToBreakFree" type="Timer" parent="PlayerGUI"]
+wait_time = 33.0
+autostart = true
+
+[node name="ProgressBarOne" type="ProgressBar" parent="PlayerGUI"]
+layout_mode = 0
+offset_top = 683.0
+offset_right = 704.0
+offset_bottom = 1067.0
+rotation = -1.57079
+max_value = 33.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 21)
 scale = Vector2(3, 1)
