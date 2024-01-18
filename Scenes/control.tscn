@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dedv54dj4b05"]
 
-[ext_resource type="Script" path="res://Scripts/SaveLoad.gd" id="1_n6gw5"]
-[ext_resource type="Script" path="res://Scripts/LineEdit.gd" id="2_13vts"]
+[ext_resource type="Script" path="res://Scripts/MainMenuAndLoadScene/SaveLoad.gd" id="1_n6gw5"]
+[ext_resource type="Script" path="res://Scripts/MainMenuAndLoadScene/LineEdit.gd" id="2_13vts"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

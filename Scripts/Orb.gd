@@ -5,6 +5,8 @@ extends CharacterBody2D
 var target = Vector2.ZERO
 
 @onready var explosion_one = preload("res://Scenes/Particles/explosion_one.tscn")
+@onready var explosion_two = preload("res://Scenes/Particles/explosion_two.tscn")
+var hit_enemy : bool = false
 
 
 func _ready():
@@ -30,10 +32,16 @@ func assign_target():
 func _on_enemy_detection_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.take_damage(damage)
+		hit_enemy = true
 		arrived_at_target()
 
 func create_explosion():
-	var explosion = explosion_one.instantiate()
+	var explosion = explosion_two.instantiate()
+	if hit_enemy == true:
+		explosion = explosion_one.instantiate()
+		hit_enemy = false
+	else:
+		explosion = explosion_two.instantiate()
 	get_parent().add_child(explosion)
 	explosion.position = position
 

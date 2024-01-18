@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://2fwn4dunrw4x"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenuAndLoadScene/load_scene.gd" id="1_pxe6b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cupnd"]
+bg_color = Color(0.858824, 0.858824, 0.858824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ah38"]
+bg_color = Color(0.670588, 0.92549, 0.435294, 1)
+
+[node name="load_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pxe6b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -4.0
+offset_right = 555.0
+offset_bottom = 973.0
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 667.0
+offset_right = 524.0
+offset_bottom = 704.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_cupnd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2ah38")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 641.0
+offset_right = 524.0
+offset_bottom = 664.0
+text = "Loading Game Assets..."
+horizontal_alignment = 1
+vertical_alignment = 1
