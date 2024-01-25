@@ -30,7 +30,6 @@ func generate_random_location():
 	var random_y_location = rng.randf_range(minimum_y, maximum_y)
 	spawn_location.x = random_x_location
 	spawn_location.y = random_y_location
-	print(spawn_location)
 
 func create_enemy():
 	generate_random_location()
