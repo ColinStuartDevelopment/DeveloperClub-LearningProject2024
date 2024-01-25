@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://gf380uy1trbp"]
+[gd_scene load_steps=4 format=3 uid="uid://gf380uy1trbp"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuAndLoadScene/StartScene.gd" id="1_bqfmn"]
 [ext_resource type="Theme" uid="uid://burhlmemjh8x1" path="res://Scenes/MainMenu/button_main_menu.tres" id="2_8d2vn"]
+[ext_resource type="Theme" uid="uid://b2mkhk4vtaafk" path="res://Scenes/MainMenu/text_main_menu.tres" id="3_op77q"]
 
 [node name="StartScene" type="Control"]
 layout_mode = 3
@@ -62,6 +63,38 @@ layout_mode = 2
 theme = ExtResource("2_8d2vn")
 text = "Quit"
 alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_right = 350.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SettingsHeader" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_op77q")
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="SettingsInformationOne" type="Label" parent="MarginContainer/VBoxContainer2"]
+texture_filter = 3
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("3_op77q")
+text = "This is information about the settings It is a simple thing I am typing, this will only be visible when settings is being viewed. I am going to learn how to wrap this text."
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
