@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://blbyp65id85qy"]
+
+[ext_resource type="Script" path="res://Scripts/CardWorld/card.gd" id="1_sp4av"]
+[ext_resource type="Texture2D" uid="uid://bjg04jxoogmpq" path="res://Assets/CardAssets/Card.png" id="1_t6krv"]
+[ext_resource type="Texture2D" uid="uid://dmvhd5paibykj" path="res://Assets/CardAssets/Symbol-Diamond.png" id="3_unapf"]
+[ext_resource type="Theme" uid="uid://b2mkhk4vtaafk" path="res://Scenes/MainMenu/text_main_menu.tres" id="4_xn02i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avf1m"]
+size = Vector2(62, 94)
+
+[node name="Card" type="AnimatableBody2D"]
+script = ExtResource("1_sp4av")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_avf1m")
+
+[node name="CardBackground" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_t6krv")
+
+[node name="TypeSpriteTL" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(-22, -38)
+texture = ExtResource("3_unapf")
+
+[node name="TypeSpriteBR" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(21, 38)
+texture = ExtResource("3_unapf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 31.0
+offset_bottom = 48.0
+
+[node name="NumberTR" type="Label" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 45.0
+offset_right = 61.0
+offset_bottom = 21.0
+theme = ExtResource("4_xn02i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A"
+horizontal_alignment = 1
+
+[node name="NumberBL" type="Label" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 3.0
+offset_top = 74.0
+offset_right = 19.0
+offset_bottom = 95.0
+theme = ExtResource("4_xn02i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "A"
+horizontal_alignment = 1
+
+[node name="NumberMiddle" type="Label" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 1.0
+offset_top = 25.0
+offset_right = 63.0
+offset_bottom = 71.0
+theme = ExtResource("4_xn02i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 42
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Control" to="." method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="Control" to="." method="_on_control_mouse_exited"]

@@ -1,6 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxuoawj6g7nx4"]
+[gd_scene load_steps=3 format=3 uid="uid://dxuoawj6g7nx4"]
 
 [ext_resource type="Script" path="res://Scripts/card_world.gd" id="1_6e5j2"]
+[ext_resource type="Theme" uid="uid://b2mkhk4vtaafk" path="res://Scenes/MainMenu/text_main_menu.tres" id="2_wlgae"]
 
-[node name="card_scene" type="Node2D"]
+[node name="card_world" type="Node2D"]
 script = ExtResource("1_6e5j2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 540.0
+offset_bottom = 160.0
+
+[node name="DrawCardButton" type="Button" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 369.0
+offset_top = 55.0
+offset_right = 531.0
+offset_bottom = 96.0
+theme = ExtResource("2_wlgae")
+theme_override_font_sizes/font_size = 30
+text = "Draw Card"
+
+[node name="ShuffleDeckButton" type="Button" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 369.0
+offset_top = 10.0
+offset_right = 531.0
+offset_bottom = 51.0
+theme = ExtResource("2_wlgae")
+theme_override_font_sizes/font_size = 30
+text = "Shuffle Deck"
+
+[node name="CardCountLabel" type="Label" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 101.0
+offset_bottom = 37.0
+theme = ExtResource("2_wlgae")
+text = "Card Count:"
+
+[node name="CardCountVariable" type="Label" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 103.0
+offset_top = 11.0
+offset_right = 128.0
+offset_bottom = 37.0
+theme = ExtResource("2_wlgae")
+text = "52"
+
+[connection signal="pressed" from="Control/DrawCardButton" to="." method="_on_draw_card_button_pressed"]
+[connection signal="pressed" from="Control/ShuffleDeckButton" to="." method="_on_shuffle_deck_button_pressed"]
