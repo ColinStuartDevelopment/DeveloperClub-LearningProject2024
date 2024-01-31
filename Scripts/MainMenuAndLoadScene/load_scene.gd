@@ -1,6 +1,6 @@
 extends Control
 
-const target_scene_path = "res://Scenes/splash_world.tscn"
+const target_scene_path = "res://Scenes/2D-FirstScene/splash_world.tscn"
 
 var loading_status : int
 var progress : Array[float]

@@ -5,7 +5,7 @@ extends CharacterBody2D
 var current_position : Vector2 = Vector2.ZERO
 var can_take_damage : bool = true
 
-@onready var orb = preload("res://Scenes/orb.tscn")
+@onready var orb = preload("res://Scenes/2D-FirstScene/orb.tscn")
 @onready var damage_timer = $DamageTimer
 
 

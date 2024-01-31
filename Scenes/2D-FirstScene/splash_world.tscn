@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://duej8wgndcgc8"]
 
-[ext_resource type="Script" path="res://Scripts/world.gd" id="1_vst5m"]
-[ext_resource type="Texture2D" uid="uid://lra0pcme3isa" path="res://Tilesheet-simpleColors-2KB.png" id="2_kdml2"]
-[ext_resource type="PackedScene" uid="uid://vh7kf0djojuh" path="res://Scenes/player_gui.tscn" id="3_3wjwc"]
-[ext_resource type="PackedScene" uid="uid://c4ragps5oh1y1" path="res://Scenes/player.tscn" id="4_jhu5k"]
-[ext_resource type="PackedScene" uid="uid://bfsxq1iutv2o7" path="res://Scenes/enemy.tscn" id="5_p1eb2"]
-[ext_resource type="PackedScene" uid="uid://cfpihn5slk4cy" path="res://Scenes/enemy_maker.tscn" id="6_og8v2"]
+[ext_resource type="Script" path="res://Scripts/2D-FirstScene/world.gd" id="1_lfxjb"]
+[ext_resource type="Texture2D" uid="uid://lra0pcme3isa" path="res://Tilesheet-simpleColors-2KB.png" id="2_go0fv"]
+[ext_resource type="PackedScene" uid="uid://vh7kf0djojuh" path="res://Scenes/2D-FirstScene/player_gui.tscn" id="3_os5sb"]
+[ext_resource type="PackedScene" uid="uid://c4ragps5oh1y1" path="res://Scenes/2D-FirstScene/player.tscn" id="4_oiflv"]
+[ext_resource type="PackedScene" uid="uid://bfsxq1iutv2o7" path="res://Scenes/2D-FirstScene/enemy.tscn" id="5_tw2ap"]
+[ext_resource type="PackedScene" uid="uid://cfpihn5slk4cy" path="res://Scenes/2D-FirstScene/enemy_maker.tscn" id="6_xx3pm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sicg1"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -15,7 +15,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_soydq"]
-texture = ExtResource("2_kdml2")
+texture = ExtResource("2_go0fv")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -51,7 +51,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.54902, 0.823529, 0.368627, 1)
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_vst5m")
+script = ExtResource("1_lfxjb")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qrs7e")
@@ -61,7 +61,7 @@ layer_0/tile_data = PackedInt32Array(-65549, 0, 0, -13, 0, 0, 65523, 0, 0, 13105
 layer_1/name = "Border Layer"
 layer_1/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 1, 65536, 0, 65537, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 3, 65536, 0, 65539, 65536, 0, 4, 65536, 0, 65540, 65536, 0, 5, 65536, 0, 65541, 65536, 0, 6, 65536, 0, 65542, 65536, 0, 7, 65536, 0, 65543, 65536, 0, 8, 65536, 0, 65544, 65536, 0, 9, 65536, 0, 65545, 65536, 0, 10, 65536, 0, 65546, 65536, 0, 11, 65536, 0, 65547, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 786432, 65536, 0, 851968, 65536, 0, 917504, 65536, 0, 983040, 65536, 0, 131083, 65536, 0, 196619, 65536, 0, 262155, 65536, 0, 327691, 65536, 0, 393227, 65536, 0, 458763, 65536, 0, 524299, 65536, 0, 589835, 65536, 0, 655371, 65536, 0, 720907, 65536, 0, 786443, 65536, 0, 851979, 65536, 0, 917515, 65536, 0, 983051, 65536, 0, 1048587, 65536, 0, 1114123, 65536, 0, 1179659, 65536, 0, 1245195, 65536, 0, 1310731, 65536, 0, 1376267, 65536, 0, 1048576, 65536, 0, 1114112, 65536, 0, 1179648, 65536, 0, 1245184, 65536, 0, 1310720, 65536, 0, 1376256, 65536, 0, 1376257, 65536, 0, 1376258, 65536, 0, 1376259, 65536, 0, 1376260, 65536, 0, 1376261, 65536, 0, 1376262, 65536, 0, 1376263, 65536, 0, 1376264, 65536, 0, 1376265, 65536, 0, 1376266, 65536, 0)
 
-[node name="PlayerGUI" parent="." instance=ExtResource("3_3wjwc")]
+[node name="PlayerGUI" parent="." instance=ExtResource("3_os5sb")]
 
 [node name="TimerToBreakFree" type="Timer" parent="PlayerGUI"]
 wait_time = 33.0
@@ -87,10 +87,10 @@ scale = Vector2(3, 1)
 anchor_mode = 0
 zoom = Vector2(1.405, 1.405)
 
-[node name="Player" parent="." instance=ExtResource("4_jhu5k")]
+[node name="Player" parent="." instance=ExtResource("4_oiflv")]
 position = Vector2(191, 333)
 
-[node name="Enemy" parent="." instance=ExtResource("5_p1eb2")]
+[node name="Enemy" parent="." instance=ExtResource("5_tw2ap")]
 position = Vector2(126, 211)
 
-[node name="EnemyMaker" parent="." instance=ExtResource("6_og8v2")]
+[node name="EnemyMaker" parent="." instance=ExtResource("6_xx3pm")]

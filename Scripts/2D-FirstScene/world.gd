@@ -28,7 +28,7 @@ func _physics_process(delta):
 func update_progress_bar():
 	progress_bar_one.value = progress_bar_one_value
 	if progress_bar_one.value >= progress_bar_one.max_value:
-		get_tree().change_scene_to_file("res://Scenes/card_world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/CardWorld/card_world.tscn")
 
 func progress_bar_completed():
 	pass

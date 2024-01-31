@@ -8,7 +8,7 @@ var minimum_y : float = 0.0
 var maximum_x : float = 0.0
 var maximum_y : float = 0.0
 
-@onready var enemy_node = preload("res://Scenes/enemy.tscn")
+@onready var enemy_node = preload("res://Scenes/2D-FirstScene/enemy.tscn")
 
 func _on_enemy_maker_timeout():
 	create_enemy()

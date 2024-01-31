@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxuoawj6g7nx4"]
 
-[ext_resource type="Script" path="res://Scripts/card_world.gd" id="1_6e5j2"]
+[ext_resource type="Script" path="res://Scripts/CardWorld/card_world.gd" id="1_6e5j2"]
 [ext_resource type="Theme" uid="uid://b2mkhk4vtaafk" path="res://Scenes/MainMenu/text_main_menu.tres" id="2_wlgae"]
 
 [node name="card_world" type="Node2D"]
