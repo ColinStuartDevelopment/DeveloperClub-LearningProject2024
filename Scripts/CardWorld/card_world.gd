@@ -65,3 +65,7 @@ func _on_draw_card_button_pressed():
 	card_in_game.position = get_global_mouse_position()
 
 
+
+
+func _on_next_scene_button_pressed():
+	pass # Replace with function body.

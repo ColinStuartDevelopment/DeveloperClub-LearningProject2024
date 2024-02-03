@@ -6,6 +6,13 @@
 [node name="card_world" type="Node2D"]
 script = ExtResource("1_6e5j2")
 
+[node name="GreenBackground" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = -8.0
+offset_right = 548.0
+offset_bottom = 963.0
+color = Color(0.0745098, 0.415686, 0, 1)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -34,6 +41,17 @@ theme = ExtResource("2_wlgae")
 theme_override_font_sizes/font_size = 30
 text = "Shuffle Deck"
 
+[node name="NextSceneButton" type="Button" parent="Control"]
+texture_filter = 3
+layout_mode = 0
+offset_left = 369.0
+offset_top = 910.0
+offset_right = 531.0
+offset_bottom = 951.0
+theme = ExtResource("2_wlgae")
+theme_override_font_sizes/font_size = 30
+text = "Next Scene"
+
 [node name="CardCountLabel" type="Label" parent="Control"]
 texture_filter = 3
 layout_mode = 0
@@ -56,3 +74,4 @@ text = "52"
 
 [connection signal="pressed" from="Control/DrawCardButton" to="." method="_on_draw_card_button_pressed"]
 [connection signal="pressed" from="Control/ShuffleDeckButton" to="." method="_on_shuffle_deck_button_pressed"]
+[connection signal="pressed" from="Control/NextSceneButton" to="." method="_on_next_scene_button_pressed"]
