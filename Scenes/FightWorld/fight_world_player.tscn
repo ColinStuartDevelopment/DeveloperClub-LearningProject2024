@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfkg3onceoovn"]
+
+[ext_resource type="Texture2D" uid="uid://cvf2lmfw3a1ae" path="res://Assets/Images/untitled.png" id="1_len1h"]
+[ext_resource type="Script" path="res://Scripts/FightWorld/fight_world_player.gd" id="1_mumgb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_saftc"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e7e16"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gk77i"]
+radius = 4.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b0uw"]
+radius = 75.0267
+
+[node name="FightWorldPlayer" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_mumgb")
+
+[node name="WorldCollider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_saftc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_len1h")
+
+[node name="DirectionRaycast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -50)
+
+[node name="HitboxArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea2D"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_e7e16")
+debug_color = Color(0.968627, 0, 0.47451, 0.419608)
+
+[node name="AttackArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2D"]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_gk77i")
+debug_color = Color(0.639216, 0.52549, 0.0117647, 0.419608)
+
+[node name="TargetArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TargetArea2D"]
+shape = SubResource("CircleShape2D_2b0uw")
+debug_color = Color(0.976471, 0, 0.431373, 0.0235294)
+
+[node name="RollingTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="RollingTimer" to="." method="_on_rolling_timer_timeout"]

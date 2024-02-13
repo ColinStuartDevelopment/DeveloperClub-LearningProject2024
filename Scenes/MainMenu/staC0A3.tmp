@@ -22,9 +22,9 @@ color = Color(0.054902, 0.054902, 0.054902, 1)
 [node name="MainHeader" type="Label" parent="."]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 1.0
+offset_top = 15.0
 offset_right = 526.0
-offset_bottom = 161.0
+offset_bottom = 175.0
 theme = ExtResource("2_8d2vn")
 theme_override_font_sizes/font_size = 72
 text = "Practice Game"
@@ -148,19 +148,8 @@ theme = ExtResource("2_8d2vn")
 text = "Fighting World
 "
 
-[node name="GoBackButton" type="Button" parent="SceneContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_8d2vn")
-text = "Go back
-"
-
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/AboutButton" to="." method="_on_about_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="SceneContainer/VBoxContainer/LoadingSceneButton" to="." method="_on_loading_scene_button_pressed"]
-[connection signal="pressed" from="SceneContainer/VBoxContainer/2DFirstSceneButton" to="." method="_on_d_first_scene_button_pressed"]
-[connection signal="pressed" from="SceneContainer/VBoxContainer/CardWorldButton" to="." method="_on_card_world_button_pressed"]
-[connection signal="pressed" from="SceneContainer/VBoxContainer/FightingSceneButton" to="." method="_on_fighting_scene_button_pressed"]
-[connection signal="pressed" from="SceneContainer/VBoxContainer/GoBackButton" to="." method="_on_go_back_button_pressed"]

@@ -1,5 +1,6 @@
 extends Node2D
 
+const loading_scene_path = "res://Scenes/FightWorld/fight_world.tscn"
 const CARD = preload("res://Scenes/CardWorld/card.tscn")
 
 var cards_in_deck : Array = ["club1", "club2", "club3", "club4", "club5", "club6", "club7", "club8", "club9", "club10", "club11", "club12", "club13", "clover1", "clover2", "clover3", "clover4", "clover5", "clover6", "clover7", "clover8", "clover9", "clover10", "clover11", "clover12", "clover13", "heart1", "heart2", "heart3", "heart4", "heart5", "heart6", "heart7", "heart8", "heart9", "heart10", "heart11", "heart12", "heart13", "diamond1", "diamond2", "diamond3", "diamond4", "diamond5", "diamond6", "diamond7", "diamond8", "diamond9", "diamond10", "diamond11", "diamond12", "diamond13"]
@@ -55,17 +56,16 @@ func _on_shuffle_deck_button_pressed():
 
 
 func _on_draw_card_button_pressed():
-	card_exchange = cards_in_deck[cards_in_deck_number]
-	cards_in_deck.remove_at(cards_in_deck_number)
-	cards_in_deck_number -= 1
-	card_count_variable.text = str(cards_in_deck_number + 1)
-	Globals.card_selected = card_exchange
-	var card_in_game = CARD.instantiate()
-	add_child(card_in_game)
-	card_in_game.position = get_global_mouse_position()
-
-
+	if cards_in_deck_number >= 0:
+		card_exchange = cards_in_deck[cards_in_deck_number]
+		cards_in_deck.remove_at(cards_in_deck_number)
+		cards_in_deck_number -= 1
+		card_count_variable.text = str(cards_in_deck_number + 1)
+		Globals.card_selected = card_exchange
+		var card_in_game = CARD.instantiate()
+		add_child(card_in_game)
+		card_in_game.position = get_global_mouse_position()
 
 
 func _on_next_scene_button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(loading_scene_path)

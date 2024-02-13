@@ -16,31 +16,42 @@ const s_clover = preload("res://Assets/CardAssets/Symbol-Clover.png")
 var current_card : String = "x"
 var current_position : Vector2 = Vector2.ZERO
 var card_clickable : bool = false
+var follow_mouse : bool = false
 
 var has_card_updated : bool = false
 
 func _ready():
 	# current_card = Globals.card_selected
 	current_card = Globals.card_selected
+	print("Card Drawn: " + current_card)
 
 func _process(delta):
 	if card_clickable:
 		if Input.is_action_pressed("left_mouse"):
-			position = get_global_mouse_position()
+			if Globals.card_active == current_card:
+				follow_mouse = true
 		if Input.is_action_just_released("left_mouse"):
 			card_clickable = false
+			follow_mouse = false
+	
+	if follow_mouse == true:
+		position = get_global_mouse_position()
 	
 	if has_card_updated == false:
 		print_card_stats()
 
 func _on_control_mouse_entered():
 	card_clickable = true
+	if Globals.card_active == "no_card_active":
+		Globals.card_active = current_card
 
-# func _on_control_mouse_exited():
-	# card_clickable = false
+func _on_control_mouse_exited():
+	if Input.is_action_pressed("left_mouse") == false:
+		if Globals.card_active == current_card:
+			Globals.card_active = "no_card_active"
+			follow_mouse = false
 
 func print_card_stats():
-	print(current_card)
 	if current_card == "club1":
 		$TypeSpriteTL.texture = s_club
 		$TypeSpriteBR.texture = s_club

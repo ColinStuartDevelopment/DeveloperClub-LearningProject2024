@@ -1,4 +1,6 @@
 extends Node
 
-var card_selected : String = "x_card_selected_x"
+var card_selected : String = "card_selected"
+var card_active : String = "no_card_active"
+var card_active_bool : bool = false
 
